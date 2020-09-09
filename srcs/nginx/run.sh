@@ -24,5 +24,5 @@ rc-update add sshd
 rc-status
 touch /run/openrc/softlevel
 /etc/init.d/sshd restart
-nginx
+nginx -g 'daemon off;'
 tail -f /dev/null

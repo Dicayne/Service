@@ -16,7 +16,21 @@ spec:
     spec:
       containers:
       - name: wp
-        image: my-wp
+        image: my-wordpress
         imagePullPolicy: Never
         ports:
         - containerPort: 5050
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 5050
+      targetPort: 5050
+      protocol: TCP
+      name: wordpress
+  selector:
+      app: wp

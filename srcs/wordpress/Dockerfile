@@ -18,9 +18,7 @@ php7-zlib php7-curl php7-mbstring php7-json php7-session
 
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -zxvf latest.tar.gz && rm latest.tar.gz
-RUN mv wordpress /var/tmp/
-RUN cp -R /var/tmp/wordpress/* /var/tmp/
-RUN rm -R /var/tmp/wordpress/
+RUN mv wordpress /www
 
 COPY run.sh .
 ENTRYPOINT sh /run.sh
