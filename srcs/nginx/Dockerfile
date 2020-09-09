@@ -19,10 +19,8 @@ RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
 COPY ./nginx.conf /etc/nginx/
 COPY ./index.html .
 COPY ./run.sh .
-COPY ./default.conf /etc/nginx/conf.d/
 COPY ./sshd_config /etc/ssh/
-
-EXPOSE 80
-EXPOSE 443
-EXPOSE 30022
+RUN mkdir -p /etc/nginx/ssl
+RUN openssl req -x509 -out /etc/nginx/ssl/services.crt -keyout /etc/nginx/ssl/services.key -newkey rsa:2048 -nodes -sha256 -subj '/CN=services'
+EXPOSE 80 443 22
 ENTRYPOINT sh run.sh

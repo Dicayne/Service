@@ -1,4 +1,4 @@
-minikube start
+minikube start --driver=docker
 minikube addons enable metallb
 eval $(minikube docker-env)
 
@@ -10,7 +10,4 @@ sh srcs/sh/build.sh
 sh srcs/sh/kubcreate.sh
 
 #Kubernetes Expose Services
-sh srcs/sh/expose.sh
-
-#Test
-# kubectl get ingress
+# sh srcs/sh/expose.sh
