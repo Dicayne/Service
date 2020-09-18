@@ -1,1 +1,0 @@
-kubectl expose deploy nginx-deployment --port=80 --type=LoadBalancer
