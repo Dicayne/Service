@@ -6,7 +6,7 @@
 #    By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/10 18:18:30 by vmoreau           #+#    #+#              #
-#    Updated: 2020/09/18 18:38:03 by vmoreau          ###   ########.fr        #
+#    Updated: 2020/09/19 11:21:02 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ RUN apk add mariadb mariadb-client openrc
 
 COPY ./db.sql .
 COPY ./run.sh .
-COPY mariadb-server.cnf etc/my.cnf.d/
+COPY ./my.cnf /etc/
 
 EXPOSE 3306
 ENTRYPOINT sh /run.sh
