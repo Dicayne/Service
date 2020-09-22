@@ -6,7 +6,7 @@
 #    By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/10 17:11:31 by vmoreau           #+#    #+#              #
-#    Updated: 2020/09/18 15:40:47 by vmoreau          ###   ########.fr        #
+#    Updated: 2020/09/21 11:27:59 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ php7-zlib php7-curl php7-mbstring php7-json php7-session
 COPY phpMyAdmin-5.0.2-all-languages.tar.gz .
 RUN tar -zxvf phpMyAdmin-5.0.2-all-languages.tar.gz && rm phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN mv phpMyAdmin-5.0.2-all-languages /www
+COPY config.inc.php /www/
 
 EXPOSE 5000
 COPY run.sh .

@@ -1,7 +1,10 @@
 CREATE DATABASE wordpress;
-CREATE USER 'username'@'%' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON wordpress.* TO 'username'@'%';
--- CREATE USER pierre@service IDENTIFIED BY "pierre";
--- CREATE USER paul@service IDENTIFIED BY "paul";
--- CREATE USER jaque@service IDENTIFIED BY "jaque";
+CREATE USER 'admin'@'%' IDENTIFIED BY 'pw_admin';
+CREATE USER 'user1'@'%' IDENTIFIED BY "pw_user1";
+CREATE USER 'user2'@'%' IDENTIFIED BY "pw_user2";
+CREATE USER 'user3'@'%' IDENTIFIED BY "pw_user3";
+GRANT ALL PRIVILEGES ON wordpress.* TO 'admin'@'%';
+GRANT SELECT ON wordpress.* TO 'user1'@'%';
+GRANT SELECT ON wordpress.* TO 'user2'@'%';
+GRANT SELECT ON wordpress.* TO 'user3'@'%';
 FLUSH PRIVILEGES;

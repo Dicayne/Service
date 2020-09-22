@@ -6,4 +6,5 @@ kubectl apply -f srcs/nginx/nginx.yaml
 kubectl apply -f srcs/wordpress/wordpress.yaml
 kubectl apply -f srcs/phpmyadmin/phpmyadmin.yaml
 kubectl apply -f srcs/mysql/mysql.yaml
+kubectl apply -f srcs/ftps/ftps.yaml
 echo "ready mtf"

@@ -5,22 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vmoreau <vmoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/05/20 14:50:11 by vmoreau           #+#    #+#              #
-#    Updated: 2020/09/21 13:37:33 by vmoreau          ###   ########.fr        #
+#    Created: 2020/09/22 13:17:10 by vmoreau           #+#    #+#              #
+#    Updated: 2020/09/22 16:14:33 by vmoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM alpine:latest
 
-RUN apk update \
-&& apk add --no-cache php7 php7-fpm php7-opcache php7-gd php7-mysqli \
-php7-zlib php7-curl php7-mbstring php7-json php7-session
+RUN apk update
+RUN apk add vsftpd openrc openssl
 
-COPY latest.tar.gz .
-RUN tar -zxvf latest.tar.gz && rm latest.tar.gz
-RUN mv wordpress /www
-COPY wp-config.php /www
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout /etc/vsftpd/vsftpd.pem -out /etc/vsftpd/vsftpd.pem -subj '/CN=services'
 
-EXPOSE 5050
-COPY run.sh .
-ENTRYPOINT sh /run.sh
+COPY ./vsftpd.conf /etc/vsftpd/
+COPY ./run.sh .
+ENTRYPOINT  sh /run.sh
