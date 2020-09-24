@@ -24,12 +24,12 @@ spec:
   apiVersion: v1
   kind: Service
   metadata:
-      name: grafana-service
+      name: grafana
   spec:
-      type: ClusterIP
+      type: LoadBalancer
       ports:
       - name: grafana
         port: 3000
         targetPort: 3000
       selector:
-          app: grafana-service
+          app: grafana

@@ -33,5 +33,7 @@ spec:
     ports:
     - name: ftps
       port: 21
+    - name: ftps-passive
+      port: 30020
     selector:
         app: ftps
