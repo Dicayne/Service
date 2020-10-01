@@ -11,7 +11,8 @@ then
 
     #Kubernetes Create Deploy
     sh srcs/sh/kubcreate.sh
-else
+elif [ $# -eq 0 ]
+then
     clean="no"
     export clean
     echo "\033[4;33mLaunching Minikube:\033[0m\n"
@@ -26,6 +27,8 @@ else
     #Kubernetes Create Deploy
     echo "\033[4;33mDeploy Kubernetes Deployment and Services:\033[0m\n"
     sh srcs/sh/kubcreate.sh
+else
+    echo "\n\033[5;31m        ERROR\033[0m"
+    echo "\033[4;31m\"clean\" is the unique option\n\033[0m"
+
 fi
-echo "\033[1;34mIf you want the dashboard run:\033[0m \033[4;34mminikube dashboard\033[0m\n"
-echo "\033[1;34mCheck NGINX page to get all login:\033[0m \033[4;34mhttp://172.17.0.220\033[0m\n"

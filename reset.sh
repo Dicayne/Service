@@ -12,7 +12,8 @@ then
     minikube stop
     minikube delete --all
     echo "\033[34mReset ➔\033[0m \033[1;32mDone ✔\033[0m\n"
-else
+elif [ $# -eq 0 ]
+then
     eval $(minikube docker-env) > /dev/null
     kubectl delete deployments --all > /dev/null 
         echo "\n\033[34mDelete Deployment ➔\033[0m \033[1;32mDone ✔\033[0m\n" 
@@ -34,4 +35,7 @@ else
     minikube delete --all > /dev/null
         echo "\033[34mReset Minikube ➔\033[0m \033[1;32mDone ✔\033[0m\n"
     echo "\033[34mReset ➔\033[0m \033[1;32mDone ✔\033[0m\n"
+else
+    echo "\n\033[5;31m        ERROR\033[0m"
+    echo "\033[4;31m\"clean\" is the unique option\n\033[0m"
 fi
