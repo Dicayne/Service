@@ -4,6 +4,7 @@ then
     export clean
     minikube start --driver=docker
     minikube addons enable metallb
+    minikube addons enable metrics-server
     eval $(minikube docker-env)
 
     #Docker Images Building"
@@ -18,6 +19,7 @@ then
     echo "\033[4;33mLaunching Minikube:\033[0m\n"
     minikube start --driver=docker > /dev/null ; echo -n "\033[42m\033[32m..."
     minikube addons enable metallb > /dev/null ; echo -n ...
+    minikube addons enable metrics-server > /dev/null ; echo -n ...
     eval $(minikube docker-env) ; echo "...\033[0m\033[1;32m Done ✔\033[0m\n"
 
     #Docker Images Building"

@@ -6,7 +6,8 @@ then
     kubectl delete namespaces metallb-system
     kubectl delete pvc mysql-pv-claim
     kubectl delete pv mysql-pv-volume
-    docker rmi -f my-nginx alpine my-wordpress my-phpma my-mysql my-ftps
+    docker rmi -f my-nginx alpine my-wordpress my-phpma my-mysql \
+                my-ftps my-grafana my-influxdb my-telegraf
     rm /home/user42/.ssh/known_hosts
     touch /home/user42/.ssh/known_hosts
     minikube stop
@@ -22,10 +23,13 @@ then
     kubectl delete namespaces metallb-system > /dev/null 
         echo "\033[34mDelete Metal LB ➔\033[0m \033[1;32mDone ✔\033[0m\n"
     kubectl delete pvc mysql-pv-claim > /dev/null 
-        echo "\033[34mDelete MYSQL Persistant Volume Claim ➔\033[0m \033[1;32mDone ✔\033[0m\n"
+    kubectl delete pvc influxdb-pv-claim > /dev/null
+        echo "\033[34mDelete Persistant Volume Claim ➔\033[0m \033[1;32mDone ✔\033[0m\n"
     kubectl delete pv mysql-pv-volume > /dev/null 
-        echo "\033[34mDelete MYSQL Persistant Volume ➔\033[0m \033[1;32mDone ✔\033[0m\n"
-    docker rmi -f my-nginx alpine my-wordpress my-phpma my-mysql my-ftps my-grafana> /dev/null 
+    kubectl delete pv influxdb-pv-volume > /dev/null
+        echo "\033[34mDelete Persistant Volume ➔\033[0m \033[1;32mDone ✔\033[0m\n"
+    docker rmi -f my-nginx alpine my-wordpress my-phpma my-mysql \
+                my-ftps my-grafana my-influxdb my-telegraf > /dev/null 
         echo "\033[34mDelete Docker Images ➔\033[0m \033[1;32mDone ✔\033[0m\n"
     rm /home/user42/.ssh/known_hosts > /dev/null 
     touch /home/user42/.ssh/known_hosts > /dev/null 
