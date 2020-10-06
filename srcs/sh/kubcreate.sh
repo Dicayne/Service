@@ -27,6 +27,7 @@ else
     kubectl apply -f srcs/influxdb/influxdb.yaml > /dev/null ; echo -n ...
     kubectl apply -f srcs/telegraf/telegraf.yaml > /dev/null; echo ".\033[0m \033[1;32m Done ✔\033[0m\n"
     echo "\033[5;92mREADY TO RUN FT_SERVICES\033[0m\n"
+    echo "\033[1;34mIf you want to setup clearly run:\033[0m \033[4;34msh setup.sh clear or sh restart.sh clear\033[0m\n" 
 fi
 echo "\033[1;34mIf you want the dashboard run:\033[0m \033[4;34mminikube dashboard\033[0m\n"
 echo "\033[1;34mCheck NGINX page to get all login:\033[0m \033[4;34mhttp://172.17.0.220\033[0m\n"
