@@ -1,3 +1,3 @@
 # Service
 
-This project work on minikube version 1.13
+This project work on minikube 1.13
